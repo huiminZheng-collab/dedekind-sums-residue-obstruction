@@ -1,0 +1,11 @@
+python 3.12.4
+theorem G: nine generators and their inverses obey the mod-9 law
+theorem G: U takes 0, -8, 40, -560, hence all four squares modulo 9
+theorem G cross-check: 26244 residue pairs with det ≡ 1 (mod 36) stay in the law
+theorem H: 46 Schreier polynomials and the identity obey b0 ≡ 2r^2, b1 ≡ 2r, b_n ≡ 0 (n>=2) mod 3
+theorem H: each of those 47 polynomials, slashed by (1,0;-15,1) and added, stays in the law
+theorem H: (3/4) S-tilde(1,0;15,1) = -4250 ≡ 1 (mod 3); the identity gives 0
+level 9 mod 16: 24576 states, every allowed residue occurs, no others
+level 9 mod 36: 11664 states, every allowed residue occurs, no others
+level 9: 40 exact words of length 6 match the mod-16 and mod-36 reductions
+REFINEMENTS CERTIFICATE OK

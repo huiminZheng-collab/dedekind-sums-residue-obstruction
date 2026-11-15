@@ -1,0 +1,9 @@
+python 3.12.4
+bernoulli: B1 and B3 match Definition 1.1, and the cleared formula matches on 4 samples
+polynomials: 6 generators match the finite sum at >= 3 cusps, and (12) matches
+invariant: 7 generators and their inverses have even (A, B1, C1), A≡2m^2 and B1≡-2m mod 3
+family: four Faulhaber blocks, doubled by the (j,n)->(c-j,3-n) symmetry, sum to -2*m**2
+family direct: unsplit double sum equals -2*m**2 for m=1..12
+words: 72 cosets, 19 Schreier generators, 18 explicit words multiplied back, max length 5
+cross-check: 1458 residue states, invariant and the mod-6 congruence both hold
+CERTIFICATE OK

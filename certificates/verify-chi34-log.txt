@@ -1,0 +1,6 @@
+python 3.12.4
+polynomials: 8 generators match our finite sum at >= 3 cusps; (12) matches; mod-3 invariant holds
+witnesses: S-tilde(1,-1;12,-11)=-16/3, S-tilde(-11,3;-48,13)=-2254/3, gcd 2/3
+sample: cocycle on one product agrees with the finite sum, value 2384/3
+words: 96 cosets, 27 Schreier generators, 26 explicit words multiplied back, max length 5
+CHI34 CERTIFICATE OK

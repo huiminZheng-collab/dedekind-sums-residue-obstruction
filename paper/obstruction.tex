@@ -1,0 +1,817 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{url}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tS}{\widetilde{S}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\SL}{\operatorname{SL}}
+
+\title{A unipotent residue obstruction\\ for higher-weight generalized Dedekind sums}
+\author{}
+\date{15 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+At weight \(2\), a newform Dedekind sum is a homomorphism, so its image is a group.
+At higher weight the same construction yields a period-polynomial cocycle, and evaluation of that cocycle need not be a homomorphism.
+We prove a coefficient congruence, stable under a two-dimensional unipotent action modulo an odd prime, which forces a normalized value to miss a residue class.
+On \(\Gamma_1(9)\), \(\Gamma_1(12)\), and \(\Gamma_1(15)\) the congruence applies to \((\chi_3,\chi_3,4)\), \((\chi_3,\chi_4,4)\), and \((\chi_3,\chi_5,7)\).
+In each case the set of values is a proper subset of the additive group it generates, so it is not a group.
+The second bullet of Tranbarger's Conjecture~1.15 therefore fails for these three triples.
+The largest constants of containment printed for the first two triples remain valid.
+The constant \(4\) printed for \((\chi_3,\chi_5,7)\) is already false on the finite set \(G_{50}(15)\) used to print the table.
+One further triple on the same group, \((\chi_3,\chi_3,6)\), has the same shape: \(\tfrac{3}{10}\tS\) is an integer congruent to \(0\) or \(1\) modulo \(3\), the additive span is \(\tfrac{10}{3}\Z\), and the printed constant \(\tfrac{10}{3}\) remains the largest constant of containment.
+A separate law modulo \(9\) sharpens the second example.
+The exact image inside the surviving classes is not determined.
+\end{abstract}
+
+\section{The conjecture}
+\label{sec:conj}
+
+At weight \(2\), a newform Dedekind sum is a crossed homomorphism, so its image on \(\Gamma_1(q_1q_2)\) is a group \cite{Majure,SVY}.
+At higher weight the same construction produces a period polynomial of degree \(n=k-2\) and only the cocycle \eqref{eq:cocycle} below.
+Evaluation of that cocycle need not be a homomorphism.
+For \((\chi_3,\chi_3,4)\), \((\chi_3,\chi_4,4)\), \((\chi_3,\chi_5,7)\), and \((\chi_3,\chi_3,6)\), one rescaling is an integer congruent to a square residue modulo \(3\), hence to \(0\) or \(1\).
+Each image is then a proper subset of the additive group it generates.
+
+The definitions and the conjecture are those of Tranbarger \cite{Tran}.
+Numbering follows that text.
+Let \(\chi_3\) be the primitive character modulo \(3\), with values \((0,1,-1)\) on \((0,1,2)\), and let \(\chi_4\) be the primitive character modulo \(4\), vanishing on even arguments, with \(\chi_4(1)=1\) and \(\chi_4(3)=-1\).
+Both are odd.
+The Legendre symbol \(\chi_5\) modulo \(5\) is even.
+The parity condition \(\chi_1\chi_2(-1)=(-1)^k\) therefore allows \((\chi_3,\chi_3,4)\), \((\chi_3,\chi_4,4)\), and \((\chi_3,\chi_5,7)\), and it excludes \((\chi_3,\chi_3,3)\) and \((\chi_3,\chi_4,3)\).
+These characters are real and equal to their own inverses.
+
+For \(c>0\), Theorem~1.7 of the source is the finite sum
+\[
+S_{\chi_1,\chi_2,k}\begin{pmatrix}a&b\\c&d\end{pmatrix}
+=\sum_{j\bmod c}\sum_{n\bmod q_1}
+\overline{\chi_1}(n)\,\overline{\chi_2}(j)\,
+B_1\Bigl(\frac{j}{c}\Bigr)
+B_{k-1}\Bigl(\frac{aj}{c}+\frac{n}{q_1}\Bigr),
+\]
+with \(B_m\) the periodic Bernoulli function of Definition~1.1.
+Definition~1.14 sets \(\tS(\gamma)=c^{k-2}S(\gamma)\).
+The sum depends on \(\gamma\) only through \(a\) and \(c\).
+For \(c=0\) one has \(\tS=0\) when \(k>2\).
+For \(k=4\) one has \(\tS(-\gamma)=\tS(\gamma)\); for \(k=7\) one has \(\tS(-\gamma)=-\tS(\gamma)\), whenever both values are read off the same cusp.
+
+On \(\Gamma_1(N)\) the nebentypus is trivial.
+Lemma~5.1 therefore supplies, for each \(\gamma\), a polynomial \(h_\gamma\) of degree at most \(n=k-2\).
+Lemma~5.2 is the right cocycle
+\begin{equation}
+\label{eq:cocycle}
+h_{\gamma_1\gamma_2}=h_{\gamma_1}\big|_{2-k}\gamma_2+h_{\gamma_2},
+\end{equation}
+where \((f|_{-n}\gamma)(z)=(cz+d)^n f(\gamma z)\).
+In particular \(h_{g^{-1}}=-(h_g|_{-n}g^{-1})\).
+Formula~(12) evaluates the cocycle on an inverse.
+The reading used below, which agrees with the finite sum for every matrix cited in this note, is the following.
+If \(h_M(z)=\sum_{i=0}^{n}a_i(M)z^{n-i}\) and \(M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\), then
+\begin{equation}
+\label{eq:eval}
+\tS(M^{-1})=\sum_{i=0}^{n}a_i(M)\,d^{n-i}(-c)^{i}.
+\end{equation}
+The power is \((-c)^{k-2}\), with \(c\) the bottom-left entry of \(M\), not of \(M^{-1}\).
+When \(k-2\) is even this equals \(c^{k-2}h_M(d/(-c))\).
+When \(k-2\) is odd the two differ by a sign.
+The matrix \(M=\begin{pmatrix}1&0\\-15&1\end{pmatrix}\) has \(c^5 h_M(d/(-c))=17000/3\), while the finite sum gives \(\tS(M^{-1})=\tS\begin{pmatrix}1&0\\15&1\end{pmatrix}=-17000/3\).
+
+The source defines, for a positive integer \(j\),
+\[
+G_j(N)=\bigl\{\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\Gamma_1(N):1\le a<jN,\ N\le c<jN\bigr\}.
+\]
+The tables of Section~6.1 record the largest rational \(r\ge 0\) such that \(\tS(G_{50}(q_1q_2))\subseteq r\Z\).
+Conjecture~1.15, in the arXiv text, reads as follows.
+
+\begin{quote}
+We conjecture the following points regarding the image \(\tS_{\chi_1,\chi_2,k}(\Gamma_1(q_1q_2))\) for pairs of quadratic characters \(\chi_1\) and \(\chi_2\).
+\begin{itemize}
+\item The tables in Section~6.1 extend from \(G_{50}(q_1q_2)\) to \(\Gamma_1(q_1q_2)\) with equality.
+\item For some \(d\) dividing \(2k-2\), either \(\tS=d\Z\) or \(\tS=d\Z/q_1\).
+\end{itemize}
+\end{quote}
+
+The second bullet names only groups.
+Theorem~\ref{thm:three} shows that each of the three images is a proper subset of its additive span, so none of them is a group, and the second bullet fails for these triples.
+The first bullet is the sentence quoted above.
+It is not the statement proved here.
+For the first two triples the printed constant remains the largest positive rational \(r\) with the image contained in \(r\Z\).
+For \((\chi_3,\chi_5,7)\) the printed constant \(4\) is already false on \(G_{50}(15)\), by the value in Theorem~\ref{thm:three}(iii); the largest such constant on the whole group is \(\tfrac43\).
+
+Throughout, \(\langle I\rangle\) denotes the additive group generated by a set \(I\subseteq\Q\).
+The index formula \([\SL_2(\Z):\Gamma_1(N)]=N^2\prod_{p\mid N}(1-1/p^2)\) gives the three indices \(72\), \(96\), and \(192\) used below.
+The symmetric generating set of \(\SL_2(\Z)\) is \(\{S,T,S^{-1},T^{-1}\}\), with \(S=\begin{pmatrix}0&-1\\1&0\end{pmatrix}\) and \(T=\begin{pmatrix}1&1\\0&1\end{pmatrix}\).
+A rewriting that omits the inverses does not present the group.
+Generation is the Schreier lemma: once every Schreier generator is exhibited as a word in a proposed set and its inverses, that set generates.
+The words are finite and are multiplied in the accompanying programs.
+Those multiplications are integer arithmetic.
+They are not a substitute for the cocycle induction.
+
+\section{A unipotent congruence}
+\label{sec:lemma}
+
+\begin{lemma}
+\label{lem:uni}
+Let \(\ell\) be an odd prime, let \(q\) be a positive integer divisible by \(\ell\), let \(n\ge 1\), and let \(\lambda\in\Q^\times\).
+Let \(\Gamma\le\SL_2(\Z)\) be a subgroup whose elements \(\begin{pmatrix}a&b\\c&d\end{pmatrix}\) satisfy \(q\mid c\) and \(a\equiv d\equiv 1\pmod{\ell}\).
+Let \(h\) be a right cocycle of degree at most \(n\) on \(\Gamma\), in the sense of \eqref{eq:cocycle}, and write \(h_M(z)=\sum_{i=0}^{n}a_i(M)z^{n-i}\).
+Set
+\[
+b_i(M)=\frac{q^{i+1}a_i(M)}{\lambda},\qquad r(M)=-\frac{c(M)}{q}.
+\]
+Suppose that on a generating set of \(\Gamma\) every \(b_i\) is an integer and, for a fixed \(\alpha\in\mathbb{F}_\ell\),
+\begin{equation}
+\label{eq:law}
+b_0\equiv\alpha r^2,\qquad b_1\equiv -2\alpha r,\qquad b_i\equiv 0\quad(i\ge 2)\pmod{\ell}.
+\end{equation}
+Then \eqref{eq:law} holds for every element of \(\Gamma\), and every \(b_i\) remains an integer.
+If the values attached to \(h\) satisfy \eqref{eq:eval}, the normalized quantity
+\[
+U(M^{-1})=\frac{q}{\lambda}\,\tS(M^{-1})
+\]
+is an integer, and
+\begin{equation}
+\label{eq:U}
+U(M^{-1})\equiv -\alpha\, r(M)^2\pmod{\ell}.
+\end{equation}
+Since inversion permutes \(\Gamma\), the same congruence holds for \(U(\gamma)\) with \(r(M)\) replaced by \(c(\gamma)/q\).
+If \(\alpha\not\equiv 0\), the residues of \(U\) therefore lie among the \((\ell+1)/2\) values of \(-\alpha\) times a square in \(\mathbb{F}_\ell\), and at least \((\ell-1)/2\) residue classes do not occur.
+\end{lemma}
+
+The additive group generated by the values of \(U\) is not part of the lemma.
+Integrality of the coefficients \(b_i\) on the generating set is an input, not a conclusion about arbitrary polynomials.
+The lemma does not require \(\ell\) to be the full conductor, only that \(\ell\) divide \(q\) and that the diagonal entries be \(1\) modulo \(\ell\).
+
+\begin{proof}
+Rescale the polynomial by
+\[
+F_M(X)=\frac{q^{n+1}}{\lambda}\,h_M\Bigl(\frac{X}{q}\Bigr)=\sum_{i=0}^{n}b_i(M)X^{n-i}.
+\]
+For \(g=\begin{pmatrix}a&b\\c&d\end{pmatrix}\) write \(g_q=\begin{pmatrix}a&qb\\c/q&d\end{pmatrix}\).
+Then \(\det g_q=1\).
+The hypothesis \(q\mid c\) makes \(g_q\) an integral matrix.
+The weight \(-n\) slash intertwines with this conjugation.
+Indeed
+\[
+\frac{q^{n+1}}{\lambda}\,(h|_{-n}g)\Bigl(\frac{X}{q}\Bigr)
+=\frac{q}{\lambda}\,(cX+qd)^n\,
+h\Bigl(\frac{aX+qb}{cX+qd}\Bigr),
+\]
+while \(g_q\cdot X=(aX+qb)/((c/q)X+d)\) gives the same expression for \((F_M|_{-n}g_q)(X)\).
+Explicitly,
+\begin{equation}
+\label{eq:Faction}
+(F_M|_{-n}g_q)(X)
+=\sum_{i=0}^{n}b_i(M)\,(aX+qb)^{n-i}\Bigl(\frac{c}{q}X+d\Bigr)^{i}.
+\end{equation}
+If the \(b_i(M)\) are integers, every coefficient on the right is an integer.
+Addition and negation preserve \(\Z[X]\).
+The cocycle becomes \(F_{Mg}=(F_M|_{-n}g_q)+F_g\), and \(F_{g^{-1}}=-(F_g|_{-n}g_q^{-1})\).
+The inverse matrix \(g_q^{-1}\) is integral of determinant \(1\).
+Thus integrality on a generating set passes to every word and every inverse, hence to \(\Gamma\).
+
+Now reduce modulo \(\ell\).
+The conditions \(a\equiv d\equiv 1\pmod{\ell}\), \(\ell\mid q\), and \(r(g)=-c(g)/q\) give
+\[
+g_q\equiv\begin{pmatrix}1&0\\-r(g)&1\end{pmatrix}\pmod{\ell}.
+\]
+In \eqref{eq:Faction}, every term with \(i\ge 2\) is multiplied by \(b_i(M)\).
+On the generating set, and then by the inductive argument below on the whole group, those coefficients are \(0\) modulo \(\ell\), so they contribute nothing modulo \(\ell\) to any output coefficient.
+The remaining terms are
+\[
+b_0(aX+qb)^n+b_1(aX+qb)^{n-1}\Bigl(\frac{c}{q}X+d\Bigr)
+\equiv b_0 X^n+b_1 X^{n-1}(-r(g)X+1)\pmod{\ell}.
+\]
+The leading pair therefore moves by
+\begin{equation}
+\label{eq:unipotent}
+(b_0,b_1)\longmapsto(b_0-r(g)\,b_1,\ b_1),
+\end{equation}
+and the coefficients of \(X^{n-i}\) for \(i\ge 2\) stay \(0\) modulo \(\ell\).
+The hypothesis that \(\ell\) is odd keeps the linear condition nontrivial: if \(\ell=2\), then \(-2\alpha\equiv 0\) and \eqref{eq:law} would force \(b_1\equiv 0\).
+
+Let \(M\) and \(g\) both satisfy \eqref{eq:law}, and write \(r_M=r(M)\), \(r_g=r(g)\).
+Adding \(F_g\) to the image under \eqref{eq:unipotent} produces
+\begin{align*}
+b_0(Mg)
+&\equiv\alpha r_M^2-r_g(-2\alpha r_M)+\alpha r_g^2
+=\alpha(r_M+r_g)^2,\\
+b_1(Mg)
+&\equiv -2\alpha r_M-2\alpha r_g
+=-2\alpha(r_M+r_g)\pmod{\ell}.
+\end{align*}
+Matrix multiplication gives \(c(Mg)=c(M)a(g)+d(M)c(g)\), so
+\[
+r(Mg)=r_M\,a(g)+d(M)\,r_g\equiv r_M+r_g\pmod{\ell},
+\]
+where the last step uses \(a(g)\equiv d(M)\equiv 1\pmod{\ell}\).
+Thus \(Mg\) satisfies \eqref{eq:law}.
+The identity has \(r=0\) and \(F=0\), so it satisfies the law.
+
+For the inverse, \(r(g^{-1})=-r_g\) and \(g_q^{-1}\equiv\begin{pmatrix}1&0\\r_g&1\end{pmatrix}\).
+The ratio of the acting matrix \(g^{-1}\) is \(-r_g\), so \eqref{eq:unipotent} is applied with that ratio:
+\[
+\bigl(\alpha r_g^2,\ -2\alpha r_g\bigr)
+\longmapsto
+\bigl(\alpha r_g^2+r_g(-2\alpha r_g),\ -2\alpha r_g\bigr)
+=\bigl(-\alpha r_g^2,\ -2\alpha r_g\bigr).
+\]
+Negating yields \((\alpha r_g^2,\ 2\alpha r_g)\), which is \eqref{eq:law} at ratio \(-r_g\).
+Higher coefficients remain \(0\) modulo \(\ell\).
+By induction on word length, \eqref{eq:law} holds on \(\Gamma\).
+
+Finally let \(r=r(M)\).
+The relation \(r=-c/q\) is \(-\,c=qr\), so \((-c)^i/q^i=r^i\).
+Substituting \(a_i=\lambda b_i/q^{i+1}\) into \eqref{eq:eval} gives
+\[
+U(M^{-1})=\sum_{i=0}^{n}b_i(M)\,d^{n-i}r^{i}.
+\]
+Modulo \(\ell\) one has \(d\equiv 1\) and \(b_i\equiv 0\) for \(i\ge 2\), hence
+\[
+U(M^{-1})\equiv b_0+b_1 r\equiv\alpha r^2+(-2\alpha r)r=-\alpha r^2\pmod{\ell}.
+\]
+The map \(r\mapsto r^2\) on \(\mathbb{F}_\ell\) takes \((\ell+1)/2\) values.
+If \(\alpha\not\equiv 0\), multiplication by \(-\alpha\) does not enlarge that set.
+\end{proof}
+
+The three applications in the next section all take \(\ell=3\).
+The pairs \((n,q,\lambda,\alpha)\) and the resulting normalizations are
+
+\begin{center}
+\begin{tabular}{lccccc}
+\hline
+triple & \(n\) & \(q\) & \(\lambda\) & \(\alpha\) & \(U\) \\
+\hline
+\((\chi_3,\chi_3,4)\) & \(2\) & \(9\) & \(18\) & \(1\) & \(\tS/2\) \\
+\((\chi_3,\chi_4,4)\) & \(2\) & \(3\) & \(2\) & \(2\) & \(3\tS/2\) \\
+\((\chi_3,\chi_5,7)\) & \(5\) & \(3\) & \(4\) & \(2\) & \(3\tS/4\) \\
+\hline
+\end{tabular}
+\end{center}
+
+In the last two rows, \(-\alpha=-2\equiv 1\pmod{3}\), so \eqref{eq:U} says \(U\equiv r^2\pmod{3}\).
+In the first row it says \(U\equiv -r^2\pmod{3}\).
+Combined with integrality of \(U\), that is the congruence modulo \(6\) stated below.
+None of the three span computations is implied by Lemma~\ref{lem:uni}.
+
+\section{Three images}
+\label{sec:three}
+
+\begin{theorem}
+\label{thm:three}
+Let \(I(\chi_1,\chi_2,k)\) denote the set of values of \(\tS_{\chi_1,\chi_2,k}\) on \(\Gamma_1(q_1q_2)\).
+\begin{enumerate}
+\item The set \(I(\chi_3,\chi_3,4)\) is contained in \(\{n\in\Z:n\equiv 0\text{ or }4\pmod{6}\}\), contains \(-2\), and does not contain \(2\).
+Its additive span is \(2\Z\).
+The largest positive rational \(r\) with \(I(\chi_3,\chi_3,4)\subseteq r\Z\) is \(r=2\).
+\item The set \(I(\chi_3,\chi_4,4)\) is contained in \(\tfrac23\Z\), and its additive span is exactly \(\tfrac23\Z\).
+For every value, \(\tfrac32\tS\) is an integer congruent to \(0\) or \(1\) modulo \(3\), so \(\tfrac43\) and \(-\tfrac23\) do not occur.
+The largest positive rational \(r\) with the image contained in \(r\Z\) is \(r=\tfrac23\).
+\item The set \(I(\chi_3,\chi_5,7)\) is contained in \(\tfrac43\Z\), and its additive span is exactly \(\tfrac43\Z\).
+For every value, \(\tfrac34\tS\) is an integer congruent to \(0\) or \(1\) modulo \(3\), so \(\tfrac83\) and \(-\tfrac43\) do not occur.
+The largest positive rational \(r\) with the image contained in \(r\Z\) is \(r=\tfrac43\).
+Separately,
+\[
+\tS_{\chi_3,\chi_5,7}\begin{pmatrix}1&-1\\15&-14\end{pmatrix}=-\frac{17000}{3},
+\]
+and this matrix lies in \(G_{50}(15)\).
+The value does not lie in \(4\Z\).
+\end{enumerate}
+In all three cases the image is a proper subset of its additive span, hence is not a group.
+Every set named in the second bullet of Conjecture~1.15 is a group.
+That bullet fails for all three triples.
+\end{theorem}
+
+The positive divisors of \(2\cdot 4-2=6\) are \(1,2,3,6\), and \(q_1=3\), so the groups allowed by the second bullet in the weight-\(4\) cases are \(\Z\), \(\tfrac13\Z\), \(2\Z\), \(\tfrac23\Z\), \(3\Z\), and \(6\Z\).
+The same list with the lattice \(\tfrac43\Z\) in place of the weight-\(4\) spans is not needed: once the image is not a group, it equals none of them.
+
+\subsection{Level \(9\), weight \(4\)}
+\label{sec:9}
+
+For \(M=\begin{pmatrix}a&b\\9m&d\end{pmatrix}\in\Gamma_1(9)\) write
+\[
+h_M=Ax^2+\frac{B_1}{9}x+\frac{C_1}{9}
+\]
+whenever \((A,B_1,C_1)\) is an integral triple.
+Formula \eqref{eq:eval} becomes
+\[
+\tS(M^{-1})=Ad^2-B_1\,d\,m+9C_1 m^2.
+\]
+The rescaling of Lemma~\ref{lem:uni} with \((q,\lambda)=(9,18)\) is
+\[
+(b_0,b_1,b_2)=\Bigl(\frac{A}{2},\frac{B_1}{2},\frac{9C_1}{2}\Bigr),\qquad r=-m.
+\]
+Thus \(U=\tS/2\), and integrality of \((b_0,b_1,b_2)\) is evenness of \((A,B_1,C_1)\).
+
+The group \(\Gamma_1(9)\) is generated by the seven matrices \(\mathtt{Gamma1(9).gens()}\), stored with their period polynomials in the repository \cite{NFDS}.
+The polynomials were compared with the cocycle definition of \(h_M\) at cusps of denominator \(9\), and \eqref{eq:eval} reproduces the finite sum on each inverse.
+The coordinates are
+
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+\(M\) & \((A,B_1,C_1)\) & \(m=c/9\) \\
+\hline
+\((1,1;0,1)\) & \((0,0,0)\) & \(0\) \\
+\((-8,1;-9,1)\) & \((2,-4,0)\) & \(-1\) \\
+\((19,-4;81,-17)\) & \((522,-1980,208)\) & \(9\) \\
+\((10,-3;27,-8)\) & \((-174,876,-124)\) & \(3\) \\
+\((-26,11;-45,19)\) & \((-220,1672,-352)\) & \(-5\) \\
+\((37,-16;81,-35)\) & \((-612,4752,-1024)\) & \(9\) \\
+\((19,-12;27,-17)\) & \((156,-1716,526)\) & \(3\) \\
+\hline
+\end{tabular}
+\end{center}
+
+Every entry is an even integer.
+Reducing modulo \(3\), one finds \(A\equiv 2m^2\) and \(B_1\equiv -2m\).
+Dividing by \(2\) modulo \(3\), which is multiplication by \(2\), rewrites these as \(b_0\equiv r^2\) and \(b_1\equiv -2r\), with the third coordinate \(0\) modulo \(3\).
+This is \eqref{eq:law} with \(\alpha=1\).
+The check is finite: for the second row, \(2-2(-1)^2=0\) and \(-4+2(-1)=-6\).
+The other rows are the same arithmetic.
+
+The index \([\SL_2(\Z):\Gamma_1(9)]\) is \(72\).
+Enumerating right cosets by bottom rows modulo \(9\) produces \(19\) Schreier generators relative to \(\{S,T,S^{-1},T^{-1}\}\), one of which is the identity.
+Each of the other eighteen equals a word of length at most \(5\) in the seven matrices and their inverses.
+The words are the file \texttt{certificates/gamma1\_9\_words.txt}, and the products are recomputed by \texttt{src/check\_words.py}.
+The Schreier lemma gives generation.
+Lemma~\ref{lem:uni} therefore applies to all of \(\Gamma_1(9)\).
+
+The conclusion \(U\equiv -r^2\pmod{3}\) means \(\tS/2\equiv -(c/9)^2\pmod{3}\) after the square is moved to the matrix being evaluated.
+Since \(U\) is an integer, \(\tS=2U\) is an even integer and
+\[
+\tS(\gamma)\equiv -2\Bigl(\frac{c}{9}\Bigr)^2\pmod{6}.
+\]
+Squares modulo \(3\) are \(0\) and \(1\).
+The class \(2\pmod{6}\) would require \(U\equiv 1\pmod{3}\), which is the class omitted by \(-r^2\).
+No value is congruent to \(2\) modulo \(6\).
+The identity gives \(0\).
+The matrix \(\begin{pmatrix}1&0\\9&1\end{pmatrix}\) lies in \(G_{50}(9)\) and has \(\tS=-2\), by the case \(m=1\) of Theorem~\ref{thm:family} in the appendix, or by the finite sum at \(c=9\).
+Thus \(-2\) lies in the image, the image lies in \(2\Z\), and the span is exactly \(2\Z\).
+The integer \(2\) is excluded, so the image is not \(2\Z\).
+No positive rational larger than \(2\) contains \(-2\) in its multiples.
+
+\subsection{Level \(12\), weight \(4\)}
+\label{sec:12}
+
+For \(M=\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\Gamma_1(12)\) write \(c=3\,\mathrm{cpp}\) and
+\[
+h_M=\frac{2A}{3}x^2+\frac{2B}{9}x+\frac{2C}{27},
+\]
+so that \((A,B,C)=\bigl(\tfrac32 c_2,\tfrac92 c_1,\tfrac{27}{2}c_0\bigr)\) when \(h_M=c_2x^2+c_1x+c_0\).
+On \(\Gamma_1(12)\) the integer \(\mathrm{cpp}\) is divisible by \(4\).
+Formula \eqref{eq:eval} gives
+\[
+\tS(M^{-1})=\frac23\bigl(Ad^2-B\,d\,\mathrm{cpp}+C\,\mathrm{cpp}^2\bigr).
+\]
+The rescaling with \((q,\lambda)=(3,2)\) is \((b_0,b_1,b_2)=(A,B,C)\) and \(r=-\mathrm{cpp}\), so \(U=\tfrac32\tS\).
+The slash in these coordinates, by a matrix with bottom-left entry \(3\,\mathrm{cpp}\), is
+\begin{align*}
+A'&=Aa^2+Ba\,\mathrm{cpp}+C\,\mathrm{cpp}^2,\\
+B'&=6Aab+B(ad+bc)+2C\,\mathrm{cpp}\,d,\\
+C'&=9Ab^2+3Bbd+Cd^2.
+\end{align*}
+Integral coordinates remain integral.
+This is the integrality input of the lemma, seen in coordinates.
+
+The nine matrices \(\mathtt{Gamma1(12).gens()}\) have coordinates
+
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+\(M\) & \((A,B,C)\) & \(\mathrm{cpp}\) \\
+\hline
+\((1,1;0,1)\) & \((0,0,0)\) & \(0\) \\
+\((-11,1;-12,1)\) & \((8,-4,0)\) & \(-4\) \\
+\((49,-9;60,-11)\) & \((560,-616,168)\) & \(20\) \\
+\((13,-3;48,-11)\) & \((-1087,1426,-471)\) & \(16\) \\
+\((13,-4;36,-11)\) & \((-72,120,-48)\) & \(12\) \\
+\((61,-25;144,-59)\) & \((-1800,4422,-2715)\) & \(48\) \\
+\((13,-6;24,-11)\) & \((-40,110,-75)\) & \(8\) \\
+\((25,-16;36,-23)\) & \((-216,840,-816)\) & \(12\) \\
+\((37,-27;48,-35)\) & \((1127,-4862,5247)\) & \(16\) \\
+\hline
+\end{tabular}
+\end{center}
+
+Each non-identity polynomial agrees with the finite sum at the cusps \(1/12\), \(5/12\), \(7/12\), \(11/12\) and at least one of \(5/24\), \(7/24\).
+Formula \eqref{eq:eval} reproduces the finite sum on each inverse.
+The nine triples satisfy \(C\equiv 0\), \(B\equiv\mathrm{cpp}\), and \(A\equiv 2\,\mathrm{cpp}^2\pmod{3}\).
+With \(r=-\mathrm{cpp}\) and \(\alpha=2\), one has \(\alpha r^2=2\,\mathrm{cpp}^2\) and \(-2\alpha r=4\,\mathrm{cpp}\equiv\mathrm{cpp}\pmod{3}\).
+Thus \(A\equiv\alpha r^2\) and \(B\equiv -2\alpha r\).
+This is \eqref{eq:law}.
+For the second row, \(8-2\cdot 16=-24\), \(-4-(-4)=0\), and \(C=0\).
+
+The index is \(96\).
+The same symmetric set produces \(27\) Schreier generators.
+The \(26\) nontrivial ones are words of length at most \(5\) in the nine matrices and their inverses, listed in \texttt{certificates/gamma1\_12\_words.txt} and multiplied back by \texttt{src/check\_words.py}.
+Lemma~\ref{lem:uni} gives \(U\equiv -2r^2\equiv \mathrm{cpp}^2\pmod{3}\), hence \(U\equiv 0\) or \(1\pmod{3}\), never \(2\).
+
+The finite sum returns
+\[
+\tS\begin{pmatrix}1&-1\\12&-11\end{pmatrix}=-\frac{16}{3},
+\qquad
+\tS\begin{pmatrix}-11&3\\-48&13\end{pmatrix}=-\frac{2254}{3}.
+\]
+The first matrix is the inverse of the second generator, and \eqref{eq:eval} agrees.
+The second is the inverse of \((13,-3;48,-11)\), and \eqref{eq:eval} agrees again.
+The greatest common divisor of these two rationals is \(\tfrac23\).
+Combined with the containment \(I\subseteq\tfrac23\Z\) coming from integrality of \(U\), the span is \(\tfrac23\Z\).
+Now \(\tfrac32\cdot\tfrac43=2\equiv 2\pmod{3}\) and \(\tfrac32\cdot(-\tfrac23)=-1\equiv 2\pmod{3}\), so neither rational lies in the image.
+No positive rational larger than \(\tfrac23\) has the same containment.
+
+\subsection{Level \(15\), weight \(7\)}
+\label{sec:15}
+
+The matrix \(\begin{pmatrix}1&-1\\15&-14\end{pmatrix}\) lies in \(\Gamma_1(15)\) and in \(G_{50}(15)\): the determinant is \(1\), the diagonal entries are \(1\) modulo \(15\), \(1\le 1<750\), and \(15\le 15<750\).
+The finite sum of Theorem~1.7, with the degree-\(6\) periodic Bernoulli function and with \(\chi_5\) the Legendre symbol, equals \(-17000/3\).
+This rational does not lie in \(4\Z\).
+The cell \(4\) in the Section~6.1 table is therefore already false on the set from which the table was computed.
+The rest of this subsection identifies the actual span and the residue obstruction.
+
+Bottom rows modulo \(15\) with \(\gcd(c,d,15)=1\) number \(192\), the index \([\SL_2(\Z):\Gamma_1(15)]\).
+Right cosets enumerated along \(\{S,T,S^{-1},T^{-1}\}\) give \(47\) Schreier generators, all in \(\Gamma_1(15)\), one of them the identity.
+They generate the group.
+On each of the \(46\) non-identity generators, Lemma~5.1 supplies a polynomial of degree at most \(5\).
+The polynomial is the interpolation of
+\[
+h_\gamma(\alpha)=\widehat{S}(\alpha)-(c\alpha+d)^5\widehat{S}(\gamma\alpha)
+\]
+through six cusps whose denominators are divisible by \(15\), checked at a seventh cusp.
+In the sums that produce these values, no denominator exceeds \(4515\).
+Write \(h=\sum_{n=0}^{5}a_n x^{5-n}\) and \(b_n=3^{n+1}a_n/4\).
+Each of the \(46\) polynomials has every \(b_n\) integral.
+Equivalently, each lies in the space \(\mathcal{P}(7;4,3)\) of Definition~1.16.
+One polynomial is short enough to inspect directly.
+The Schreier matrix \(\begin{pmatrix}1&0\\-15&1\end{pmatrix}\) has
+\[
+(b_0,\ldots,b_5)=(4250,-3200,900,-120,0,0),
+\]
+so
+\[
+h=\frac{17000}{3}x^5-\frac{12800}{9}x^4+\frac{400}{3}x^3-\frac{160}{27}x^2.
+\]
+The four nonzero products \(3^{n+1}a_n\) are \(17000\), \(-12800\), \(3600\), and \(-480\), each divisible by \(4\).
+The full list is the lines beginning with \texttt{P} in \texttt{certificates/verify-k7-log.txt}.
+There are \(46\) such lines.
+The identity contributes the zero polynomial.
+
+This integrality is the input \(b_i\in\Z\) of Lemma~\ref{lem:uni}, with \((q,\lambda)=(3,4)\) and \(n=5\).
+Once it is known on the Schreier generators, the integral matrix \(g_q\) preserves \(\Z[X]\) by \eqref{eq:Faction}, so the cocycle propagates integrality to every word.
+The general fact that all of \(\mathcal{P}(7;4,3)\) is closed under the slash is a stronger statement than this argument uses.
+It is the content of Lemma~6.2 in the source; the displayed monomial degree in that lemma's expansion should be \(x^{k-2-j}\), while the divisibility itself is the one in Definition~1.16.
+Evaluation through \eqref{eq:eval} then puts every value of \(\tS\) in \(\tfrac43\Z\).
+The case \(c=0\) is the value \(0\).
+
+The same \(46\) polynomials satisfy \eqref{eq:law} with \(\alpha=2\) and \(r=-c/3\).
+For the specimen above, \(r=5\), and \(4250\equiv 2\equiv 2\cdot 5^2\), \(-3200\equiv 1\equiv 2\cdot 5\), while the four lower integers are \(0\) modulo \(3\).
+The shape \(b_1\equiv 2r\) agrees with \(b_1\equiv -2\alpha r=-4r\) because \(-4\equiv 2\pmod{3}\).
+The program \texttt{src/verify\_refinements.py} repeats the congruence on all \(46\) lines.
+Lemma~\ref{lem:uni} gives
+\[
+U=\frac34\tS\equiv -2r^2\equiv r^2\pmod{3},
+\]
+so \(U\) is \(0\) or \(1\) modulo \(3\), never \(2\).
+The identity gives the class \(0\).
+The matrix \(\begin{pmatrix}1&0\\15&1\end{pmatrix}\) has \(\tS=-17000/3\), hence \(U=-4250\equiv 1\pmod{3}\).
+
+The matrix \(\begin{pmatrix}16&-9\\105&-59\end{pmatrix}\) lies in \(\Gamma_1(15)\), and the finite sum returns \(-1759326764/3\).
+The greatest common divisor of this rational and \(-17000/3\) is \(\tfrac43\).
+The span contains \(\tfrac43\Z\).
+With the containment, the span equals \(\tfrac43\Z\), and no larger positive rational has the same containment.
+The class \(U\equiv 2\pmod{3}\) is empty, so \(\tfrac83=\tfrac43\cdot 2\) and \(-\tfrac43=\tfrac43\cdot(-1)\) lie in the span and not in the image.
+
+\section{A square law modulo \(9\)}
+\label{sec:mod9}
+
+Lemma~\ref{lem:uni} sees only the prime \(3\).
+The second example has a sharper congruence.
+It is not a consequence of the lemma.
+
+\begin{theorem}
+\label{thm:mod9}
+Keep the coordinates \((A,B,C)\) and \(\mathrm{cpp}=c/3\) of Section~\ref{sec:12}.
+For every \(M=\begin{pmatrix}a&b\\3\,\mathrm{cpp}&d\end{pmatrix}\in\Gamma_1(12)\),
+\begin{equation}
+\label{eq:mod9}
+A\equiv 5\,\mathrm{cpp}^2,\qquad B\equiv \mathrm{cpp}\,d,\qquad C\equiv d-1\pmod{9}.
+\end{equation}
+Consequently \(U(M^{-1})=\tfrac32\tS(M^{-1})\) satisfies \(U\equiv 4\,\mathrm{cpp}^2\pmod{9}\).
+The right-hand side is a square modulo \(9\), so \(U\) is congruent to \(0\), \(1\), \(4\), or \(7\) modulo \(9\), and never to \(3\) or \(6\).
+In particular the integers \(2\) and \(4\) do not lie in \(I(\chi_3,\chi_4,4)\).
+Both are allowed by the congruence modulo \(3\).
+All four square classes occur.
+\end{theorem}
+
+\begin{proof}
+The coordinate law implies the value formula before any cocycle is used.
+Reducing the definition of \(U\) gives
+\[
+U\equiv 5\,\mathrm{cpp}^2\,d^2-(\mathrm{cpp}\,d)\,d\,\mathrm{cpp}+(d-1)\mathrm{cpp}^2
+=\mathrm{cpp}^2(4d^2+d-1)\pmod{9}.
+\]
+Every diagonal entry of a matrix in \(\Gamma_1(12)\) is \(1\) modulo \(12\), so \(d=1+12\beta\) and \(d\equiv 1+3\beta\pmod{9}\).
+Then \(d^2\equiv 1+6\beta\pmod{9}\) and
+\[
+4d^2+d-1\equiv 4+6\beta+1+3\beta-1=4+9\beta\equiv 4\pmod{9}.
+\]
+Hence \(U\equiv 4\,\mathrm{cpp}^2=(2\,\mathrm{cpp})^2\pmod{9}\).
+The squares modulo \(9\) are \(0,1,4,7\).
+
+The nine matrices of Section~\ref{sec:12}, and the nine inverse polynomials \(h_{g^{-1}}=-(h_g|_{-2}g^{-1})\), satisfy \eqref{eq:mod9}.
+For the second row, \(\mathrm{cpp}=-4\equiv 5\), \(d=1\), \(A=8\), \(B=-4\), and \(C=0\): one has \(5\cdot 25=125\equiv 8\), \(5\cdot 1\equiv -4\), and \(d-1\equiv 0\pmod{9}\).
+The other rows, and the nine inverses, are the same finite reduction.
+These eighteen matrices generate \(\Gamma_1(12)\) as a monoid.
+
+The law is preserved by right multiplication of any two elements that satisfy it.
+Let \(M\) and \(g=\begin{pmatrix}a&b\\3q&\delta\end{pmatrix}\) both satisfy \eqref{eq:mod9}, with \(a\equiv\delta\equiv 1\pmod{12}\) and \(\det=1\).
+Write \(p=\mathrm{cpp}(M)\).
+An error of \(9\) in \(A\), \(B\), or \(C\) is sent by the slash formulae to an error of \(9\) in each output coordinate: every extra term carries an explicit factor \(9\), \(6\cdot 9\), \(3\cdot 9\), or \(2\cdot 9\).
+The output modulo \(9\) may therefore be computed from the representatives \(A=5p^2\), \(B=pd\), \(C=d-1\) and \(A_g=5q^2\), \(B_g=q\delta\), \(C_g=\delta-1\).
+The new bottom data are \(p_{\mathrm{new}}=pa+dq\) and \(d_{\mathrm{new}}=3pb+d\delta\).
+
+The leading coordinate of the product is
+\[
+A_{\mathrm{new}}=5p^2 a^2+pda\,q+(d-1)q^2+5q^2,
+\]
+and \(5p_{\mathrm{new}}^2=5(pa+dq)^2\), so
+\begin{align*}
+A_{\mathrm{new}}-5p_{\mathrm{new}}^2
+&=pda\,q-10\,pda\,q+(d+4)q^2-5d^2 q^2\\
+&=-9\,pda\,q+q^2(4+d-5d^2).
+\end{align*}
+The first summand is divisible by \(9\).
+Substituting \(d=1+12\beta\) gives \(d\equiv 1+3\beta\) and \(d^2\equiv 1+6\beta\pmod{9}\), hence
+\[
+4+d-5d^2\equiv 4+(1+3\beta)-5(1+6\beta)=9\beta-27\beta\equiv 0\pmod{9}.
+\]
+
+The middle coordinate is
+\[
+B_{\mathrm{new}}=30p^2 ab+pd(a\delta+3bq)+2(d-1)q\delta+q\delta.
+\]
+Subtracting \(p_{\mathrm{new}}d_{\mathrm{new}}=(pa+dq)(3pb+d\delta)\) cancels \(pd\,a\delta\) against \(pa\,d\delta\) and cancels \(3pdbq\) against itself, and leaves
+\[
+B_{\mathrm{new}}-p_{\mathrm{new}}d_{\mathrm{new}}=27p^2 ab+q\delta(2d-1-d^2).
+\]
+The first summand is divisible by \(9\).
+The same expansion \(d=1+12\beta\) gives \(2d-1-d^2=-144\beta^2\).
+
+For the constant coordinate the term \(9Ab^2\) is \(0\) modulo \(9\).
+With the representatives, the constant coordinate of the product is congruent to
+\[
+3pdb\,\delta+(d-1)\delta^2+(\delta-1)\pmod{9},
+\]
+and \(d_{\mathrm{new}}-1=3pb+d\delta-1\).
+Subtracting and regrouping \((d-1)\delta^2-\,(d-1)\delta\) produces the congruence
+\begin{equation}
+\label{eq:C}
+C_{\mathrm{new}}-(d_{\mathrm{new}}-1)\equiv 3pb(d\delta-1)+(d-1)\delta(\delta-1)\pmod{9}.
+\end{equation}
+Both \(d-1\) and \(\delta-1\) are divisible by \(12\), so \(d\delta-1\) is divisible by \(12\) and the first summand by \(36\), while \((d-1)(\delta-1)\) is divisible by \(144\).
+
+Every word in the eighteen matrices therefore satisfies \eqref{eq:mod9}, and every value of \(U\) is a square modulo \(9\).
+The four classes occur on
+\begin{align*}
+U(1,0;0,1)&=0,\\
+U(-11,1;-12,1)&=-8\equiv 1,\\
+U(13,-6;24,-11)&=40\equiv 4,\\
+U(49,-9;60,-11)&=-560\equiv 7\pmod{9},
+\end{align*}
+all computed from \eqref{eq:eval}.
+The residues \(3\) and \(6\) are \(0\) modulo \(3\), so Theorem~\ref{thm:three}(ii) did not exclude them.
+Their exclusion removes \(\tS=2\) and \(\tS=4\).
+It does not determine \(U\) inside the four square classes.
+\end{proof}
+
+The right-hand side of \eqref{eq:C} is a congruence because \(9Ab^2\) was discarded.
+It is not an equality of integers.
+
+\section{What remains open}
+\label{sec:open}
+
+The images in Theorem~\ref{thm:three} and Corollary~\ref{cor:k6} are not classified inside the classes that survive.
+For \((\chi_3,\chi_3,4)\) the obstruction of Theorem~\ref{thm:three}(i) allows every integer congruent to \(0\) or \(4\) modulo \(6\), and the note does not decide which of those integers occur.
+A coefficient quotient on the state \((A,B_1,C_1,m,d)\), reduced modulo \(16\) and modulo \(36\) and acted on by the fourteen matrices appearing in the level-\(9\) word file, meets every even residue modulo \(16\) and every residue modulo \(36\) congruent to \(0\) or \(4\) modulo \(6\).
+The reachable counts are \(24576\) states modulo \(16\) and \(11664\) states modulo \(36\).
+Forty exact words of length \(6\) match the reduced action.
+This enumeration shows that those two moduli do not cut the image further.
+It is not a description of the image.
+The same limitation holds for \(U\) modulo \(9\) in Theorem~\ref{thm:mod9}, for \(\tfrac34\tS\) modulo \(3\) in Theorem~\ref{thm:three}(iii), and for \(\tfrac{3}{10}\tS\) modulo \(3\) in Corollary~\ref{cor:k6}: both allowed classes occur, and the class inside them is not determined.
+
+No claim is made about the cells of the Section~6.1 tables other than the four treated in Theorem~\ref{thm:three} and Corollary~\ref{cor:k6}.
+The equality \(\tS_{\chi_3,\chi_5,3}(\Gamma_1(15))=4\Z\) is not a theorem of this note.
+A scan that sees no positive value below \(94\) in a bounded range of \(c\) is an experiment, not a minimal-value theorem.
+Lemma~\ref{lem:uni} applies to a further triple only when some odd prime \(\ell\) divides the step \(q\) in \(r=-c/q\), the diagonal is \(1\) modulo \(\ell\), and the initial coefficients on a generating set obey \eqref{eq:law} for some \(\alpha\not\equiv 0\).
+Those initial coefficients are computed here case by case.
+No general formula for them, at arbitrary weight, is proved.
+
+\section{Certificates and attribution}
+\label{sec:attr}
+
+The inductions in Lemma~\ref{lem:uni} and Theorem~\ref{thm:mod9} are the arguments above.
+The finite inputs are exact rational or integer arithmetic in the Python standard library, run from the directory that contains this note.
+
+\begin{itemize}
+\item \texttt{python src/verify.py} checks the Bernoulli polynomials used for \((\chi_3,\chi_3,4)\), the seven quadratics, formula \eqref{eq:eval}, the initial congruences, the power-sum identity of the appendix, and the eighteen words.
+The log ends with \texttt{CERTIFICATE OK}.
+\item \texttt{python src/check\_words.py certificates/gamma1\_9\_words.txt} and the same program on \texttt{certificates/gamma1\_12\_words.txt} multiply the stored words.
+\item \texttt{python src/verify\_chi34.py} checks the nine quadratics, the initial congruences modulo \(3\), and the two span witnesses for level \(12\).
+The log ends with \texttt{CHI34 CERTIFICATE OK}.
+\item \texttt{python src/verify\_k7.py} checks the degree-\(6\) Bernoulli polynomial, the two level-\(15\) witnesses, the \(192\) cosets, and membership of the \(46\) interpolated polynomials in \(\mathcal{P}(7;4,3)\).
+The log ends with \texttt{K7 CERTIFICATE OK}.
+\item \texttt{python src/verify\_refinements.py} checks the eighteen triples in Theorem~\ref{thm:mod9}, the \(46\) initial congruences of Section~\ref{sec:15}, and the two quotients of Section~\ref{sec:open}.
+It reads the level-\(15\) log, so it is run after \texttt{verify\_k7.py}.
+The log ends with \texttt{REFINEMENTS CERTIFICATE OK}.
+\item \texttt{python src/verify\_k6.py} checks the weight-\(4\) calibration \(\tS(1,0;9,1)=-2\), the \(72\) cosets and the eighteen words, the eighteen degree-\(4\) polynomials, the input \(\lambda=30\) and \(\alpha=2\), the witnesses \(310/3\) and \(4480/3\), and the parabolic family for \(1\le m\le 6\).
+The log ends with \texttt{K6 CERTIFICATE OK}.
+\end{itemize}
+
+A finite sample of random words is not one of these inputs and is not a proof.
+A greatest common divisor computed on a proper subset of the group is only a lower bound for the span; the spans in Theorem~\ref{thm:three} use a matching containment.
+
+The cocycle proofs and the re-derivation of Lemma~\ref{lem:uni} are Grok's.
+The shape of that lemma was first written down by Codex.
+The second triple and the value \(-\tfrac{17000}{3}\) were proposed in a separate exploration (Hydrogen) and were recomputed here.
+The initial polynomials are taken from \cite{NFDS} and checked against the finite sum wherever a theorem depends on them.
+The weight-\(6\) polynomials were recomputed from that finite sum.
+The pair \(\lambda=30\), \(\alpha=2\) was first found by Codex.
+The arguments were prepared with AI assistance.
+
+\begin{thebibliography}{9}
+\bibitem{Majure}
+J.~Majure, \emph{Dedekind sums for a Fuchsian group of genus zero}, J.~Number Theory 250 (2023), 35--48.
+\bibitem{SVY}
+T.~Stucker, A.~Vennos, and M.~P.~Young, \emph{Dedekind sums arising from newform Eisenstein series}, Int.~J.~Number Theory 16 (2020), 2129--2139.
+\bibitem{Tran}
+P.~Tranbarger, \emph{Higher weight generalized Dedekind sums}, arXiv:2512.17139v1; J.~Number Theory 286 (2026), 1--46.
+\bibitem{NFDS}
+P.~Tranbarger, repository \texttt{NFDSFastComputation}, \url{https://github.com/prestontranbarger/NFDSFastComputation}.
+\end{thebibliography}
+
+\appendix
+\section{The values \(-2m^2\)}
+\label{app:family}
+
+The span in Section~\ref{sec:9} needs only the case \(m=1\).
+The identity for every \(m\) is recorded here because it is exact and short once the block sums are known.
+
+\begin{theorem}
+\label{thm:family}
+For every integer \(m\ge 1\) and every \(b\in\Z\),
+\[
+\tS_{\chi_3,\chi_3,4}\begin{pmatrix}1&b\\9m&1+9mb\end{pmatrix}=-2m^2.
+\]
+\end{theorem}
+
+\begin{proof}
+The matrix has determinant \(1\) and lies in \(\Gamma_1(9)\).
+For \(c>0\) the finite sum depends only on \(a\) and \(c\), so it is enough to take \(b=0\).
+Let \(c=9m\) and \(a=1\).
+Terms with \(3\mid j\) vanish.
+Write \(j=3q+r\) with \(r\in\{1,2\}\) and \(q\in\{0,\ldots,3m-1\}\), and let \(n\in\{1,2\}\).
+Then
+\[
+x=\frac{j}{c}+\frac{n}{3}=\frac{3(q+nm)+r}{9m}
+\]
+is never an integer, and \(\lfloor x\rfloor\in\{0,1\}\), with floor \(1\) precisely when \(q\ge m(3-n)\).
+There are eight blocks, one for each \((r,n,\lfloor x\rfloor)\).
+The summand of \(\tS=c^2 S\) is \(81m^2\,\chi_3(r)\chi_3(n)\,B_1(j/c)\,B_3(x)\).
+
+The substitution \((j,n)\mapsto(c-j,3-n)\) preserves the summand.
+Indeed \(c-j=3q'+(3-r)\) with \(q'=3m-1-q\), both character factors change sign because \(\chi_3\) is odd, and \((c-j)/c+(3-n)/3=2-x\).
+Thus \(B_1((c-j)/c)=-B_1(j/c)\) and \(B_3(\{2-x\})=-B_3(\{x\})\).
+The four signs cancel.
+The map identifies the four blocks with \(r=1\) with the four blocks with \(r=2\), and the eight blocks contribute twice the sum of the four blocks with \(r=1\).
+
+On a single block, \(B_3(f)=f(f-\tfrac12)(f-1)\) with \(f=\{x\}\), and the summand equals \(N(q)/(324m^2)\), where \(N\) is the product of the four linear numerators of \(B_1\), \(f\), \(f-\tfrac12\), and \(f-1\), times the character sign.
+For the block \((r,n,\lfloor x\rfloor)=(1,1,0)\), summed over \(0\le q\le 2m-1\), the change of coordinate \(t=3q+1\) factors \(N\) as
+\[
+N=(4t^2-24mt+27m^2)(t^2-3mt-18m^2)
+=4t^4-36m\,t^3+27m^2 t^2+351 m^3 t-486 m^4.
+\]
+In the coordinate \(q\),
+\begin{align*}
+N={}&324q^4+(432-972m)q^3+(243m^2-972m+216)q^2\\
+&+(1053m^3+162m^2-324m+48)q\\
+&+(-486m^4+351m^3+27m^2-36m+4).
+\end{align*}
+Faulhaber's formulae,
+\begin{align*}
+\sum_{q=0}^{L-1}1&=L,\\
+\sum q&=L(L-1)/2,\\
+\sum q^2&=L(L-1)(2L-1)/6,\\
+\sum q^3&=\bigl(L(L-1)/2\bigr)^2,\\
+\sum q^4&=L(L-1)(2L-1)(3L^2-3L-1)/30,
+\end{align*}
+with \(L=2m\), give \(\sum N=-(162/5)m^5-81m^4+9m^3+24m^2+(52/5)m\).
+Dividing by \(324m^2\) produces the block sum
+\[
+P=-\frac{162m^4+405m^3-45m^2-120m-52}{1620m}.
+\]
+The numerator factors as \((3m-2)(54m^3+171m^2+99m+26)\), which is checked by expanding the product.
+The same power-sum arithmetic on the ranges \(2m\le q\le 3m-1\), \(0\le q\le m-1\), and \(m\le q\le 3m-1\), for the blocks \((1,1,1)\), \((1,2,0)\), and \((1,2,1)\) respectively, produces
+\begin{align*}
+Q&=\frac{3483m^4-810m^3+315m^2-240m+52}{3240m},\\
+R&=-\frac{3483m^4+810m^3+315m^2+240m+52}{3240m},\\
+S&=\frac{(3m+2)(54m^3-171m^2+99m-26)}{1620m}.
+\end{align*}
+
+The combination is then short.
+Write \(X=54m^3+99m\) and \(Y=171m^2+26\).
+Then
+\[
+P+S=\frac{-(3m-2)(X+Y)+(3m+2)(X-Y)}{1620m}=\frac{4X-6mY}{1620m}.
+\]
+The numerator is \(4X-6mY=216m^3+396m-1026m^3-156m=30m(8-27m^2)\), so
+\[
+P+S=-\frac{27m^2-8}{54}.
+\]
+The other pair collapses as
+\[
+Q+R=\frac{-1620m^3-480m}{3240m}=-\frac{27m^2+8}{54}.
+\]
+Therefore \(P+Q+R+S=-m^2\), and the eight blocks sum to \(2(P+Q+R+S)=-2m^2\).
+\end{proof}
+
+The three closed forms \(Q\), \(R\), and \(S\) are the same kind of finite summation as \(P\).
+The program \texttt{src/verify.py} rebuilds each degree-\(4\) numerator from the four linear factors, sums it by the five Faulhaber polynomials, and checks the identity \(2(P+Q+R+S)=-2m^2\) in \(\Q[m]\).
+That check agrees with the cancellation above.
+As a second check, independent of the block decomposition, the unsplit double sum equals \(-2m^2\) for every \(m=1,\ldots,12\).
+
+\section{Weight \(6\)}
+\label{app:k6}
+
+The same group and the same character, at the next even weight, still fit Lemma~\ref{lem:uni}.
+The new finite input is one table of eighteen polynomials.
+The cocycle induction is not repeated.
+
+\begin{corollary}
+\label{cor:k6}
+Let \(I\) be the image of \(\tS_{\chi_3,\chi_3,6}\) on \(\Gamma_1(9)\), and set \(U=\tfrac{3}{10}\tS\).
+Then \(U(\gamma)\) is an integer and \(U(\gamma)\equiv(c(\gamma)/9)^2\pmod{3}\).
+The additive span of \(I\) is \(\tfrac{10}{3}\Z\).
+The rationals \(\tfrac{20}{3}\) and \(-\tfrac{10}{3}\) lie in that span and not in \(I\).
+The largest positive rational \(r\) with \(I\subseteq r\Z\) is \(\tfrac{10}{3}\).
+For every integer \(m\ge 1\) and every \(b\in\Z\),
+\begin{equation}
+\label{eq:k6family}
+\tS_{\chi_3,\chi_3,6}\begin{pmatrix}1&b\\9m&1+9mb\end{pmatrix}
+=\frac{10}{3}m^2(27m^2+4).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The eighteen non-identity Schreier generators are the stored words for \(\Gamma_1(9)\).
+On each of them, \(h=\sum_{i=0}^{4}a_i z^{4-i}\) satisfies \(b_i=9^{i+1}a_i/30\in\Z\) and
+\[
+b_0\equiv 2r^2,\qquad b_1\equiv -4r,\qquad b_i\equiv 0\quad(i\ge 2)\pmod{3},
+\]
+with \(r=-c/9\).
+Lemma~\ref{lem:uni} applies with \((n,q,\lambda,\alpha)=(4,9,30,2)\).
+Here \(-\alpha\equiv 1\pmod{3}\), so \(U(M^{-1})\equiv r(M)^2\pmod{3}\).
+For \(\gamma=M^{-1}\) one has \(c(\gamma)/9=r(M)\).
+The identity gives the class \(0\).
+The matrix \(P=\begin{pmatrix}1&0\\9&1\end{pmatrix}\) has \(\tS(P)=310/3\) and \(\tS(P^2)=4480/3\), hence normalized values \(31\) and \(448\).
+These are coprime, so the span is \(\tfrac{10}{3}\Z\), and no larger positive rational has the same containment.
+The empty class is \(U\equiv 2\pmod{3}\), which excludes \(\tfrac{20}{3}\) and \(-\tfrac{10}{3}\).
+Both surviving classes occur: the identity gives \(0\), and \(U(P)=31\equiv 1\pmod{3}\).
+
+The polynomial of \(P^{-1}=\begin{pmatrix}1&0\\-9&1\end{pmatrix}\) is
+\[
+h=-\frac{310}{3}x^4+\frac{1160}{27}x^3-\frac{20}{3}x^2+\frac{40}{81}x.
+\]
+The rescaling \(F(X)=9^5 h(X/9)/30\) is \(-31X^4+116X^3-162X^2+108X\).
+Write \(g=P^{-1}\) and \(g_9=\begin{pmatrix}1&0\\-1&1\end{pmatrix}\), so \(g_9^j=\begin{pmatrix}1&0\\-j&1\end{pmatrix}\).
+The right cocycle on the rescaled polynomials gives \(F_{g^m}=\sum_{j=0}^{m-1}F|_{-4}g_9^j\).
+The matrix \(g^m\) has bottom row \((-9m,1)\), so its ratio is \(r=m\) and its diagonal entry on the right is \(1\).
+Therefore \(U(P^m)=m^4 F_{g^m}(1/m)\).
+The slash at that point is
+\[
+\bigl(F|_{-4}g_9^j\bigr)\Bigl(\frac1m\Bigr)=\Bigl(\frac{m-j}{m}\Bigr)^4 F\Bigl(\frac{1}{m-j}\Bigr),
+\]
+and \(t=m-j\) runs through \(1,\ldots,m\).
+Hence
+\begin{align*}
+U(P^m)
+&=\sum_{t=1}^{m}(-31+116t-162t^2+108t^3)\\
+&=-31m+58m(m+1)-27m(m+1)(2m+1)+27m^2(m+1)^2\\
+&=m^2(27m^2+4).
+\end{align*}
+Multiplying by \(\tfrac{10}{3}\) gives \eqref{eq:k6family} for \(b=0\).
+For \(c>0\) the finite sum depends on the matrix only through its first column, and \(\begin{pmatrix}1&b\\9m&1+9mb\end{pmatrix}\) has the same first column.
+\end{proof}
+
+\end{document}

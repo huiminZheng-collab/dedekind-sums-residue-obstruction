@@ -1,0 +1,50 @@
+RFC 3161 release verification
+
+TSA URL: http://timestamp.digicert.com
+Timestamped input: RELEASE-MANIFEST.sha256.asc
+OpenPGP signing-key fingerprint: 490689A7D9DB559372C8620192664F521ACFE6E2
+Manifest SHA256: e6dafa048749f282fa5541a1e607d179ab469fb3a0b77bbeb0046334d2dfb9a2
+Signature SHA256: ab5260d78b044f5841e64642791f2b8166c416fa533f1da9f281bd0ecca235a7
+Query SHA256: 4540f824c8c5a650b26807d66a4bf073b6fc6c21f5d84abb732fe72ca512be6a
+Response SHA256: 3547737c5a91966df60d87adc1592a92b128b6c12c4f2212f2b454ab19b88045
+
+Verification against signed data:
+Verification: OK
+
+Verification against query:
+Verification: OK
+
+Decoded response:
+Status info:
+Status: Granted.
+Status description: unspecified
+Failure info: unspecified
+
+TST info:
+Version: 1
+Policy OID: 2.16.840.1.114412.7.1
+Hash Algorithm: sha256
+Message data:
+    0000 - ab 52 60 d7 8b 04 4f 58-41 e6 46 42 79 1f 2b 81   .R`...OXA.FBy.+.
+    0010 - 66 c4 16 fa 53 3f 1d a9-f2 81 bd 0e cc a2 35 a7   f...S?........5.
+Serial number: 0xC67ECF66445CAA62562040CFEA326ED8
+Time stamp: Nov 15 09:31:47 2026 GMT
+Accuracy: unspecified
+Ordering: no
+Nonce: 0x074B6B5240F9B973
+TSA: unspecified
+Extensions:
+
+Decoded query:
+Version: 1
+Hash Algorithm: sha256
+Message data:
+    0000 - ab 52 60 d7 8b 04 4f 58-41 e6 46 42 79 1f 2b 81   .R`...OXA.FBy.+.
+    0010 - 66 c4 16 fa 53 3f 1d a9-f2 81 bd 0e cc a2 35 a7   f...S?........5.
+Policy OID: unspecified
+Nonce: 0x074B6B5240F9B973
+Certificate required: yes
+Extensions:
+
+The pinned DigiCert Trusted Root G4 was independently checked against the trusted CA bundle.
+The timestamp fixes existence of the signature imprint, not authorship, correctness, novelty or peer review.

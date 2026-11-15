@@ -1,0 +1,13 @@
+python 3.12.4
+k7 direct sum: S-tilde(1,-1;15,-14) = -17000/3
+k7 in 4Z? False
+k7 formula (12) on the author's first polynomial also gives -17000/3
+k7 second positive-c value S-tilde(16,-9;105,-59) = -1759326764/3
+k7 gcd of the two positive-c values = 4/3
+k7 third value, negative c, sign (-1)^{k-2}: 15504792600
+k7 gcd of the three values = 4/3
+k7 span statement: these values generate a group containing (4/3)Z; they do not prove every value lies in (4/3)Z
+hurwitz stated range q in {3,4,5,7,8}, k=3..9: failures none
+hurwitz probes outside the stated range: (3,10) ok, (3,12) ok, (3,14) ok, (11,3) ok, (11,4) ok, (11,5) ok, (11,6) ok, (11,8) ok, (11,10) ok, (13,3) ok, (13,4) ok, (13,6) ok
+hurwitz status: finite experiment, not a theorem for all conductors and weights
+AUDIT VALUES OK
